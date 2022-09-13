@@ -1,3 +1,4 @@
+using System.Data.Common;
 using WebApplication2.model;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -66,6 +67,11 @@ app.MapPost("/api/sku", (SKU new_sku) => {
     {
         new_sku.Id = Guid.NewGuid().ToString();
         //new_sku.Category_id.Id
+        var sku_categy = context.SKU_Categories.FindAsync(new_sku.CategotyId).Result;
+        if (sku_categy != null)
+        {
+            new_sku.Category = sku_categy; // as SKU_Category;
+        }
         context.SKUs.Add(new_sku);
         context.SaveChanges();
     }

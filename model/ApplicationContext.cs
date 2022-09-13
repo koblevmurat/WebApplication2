@@ -5,7 +5,7 @@ namespace WebApplication2.model
 {
     public class ApplicationContext : DbContext
     {
-        public DbSet<User> Users { get; set; } = null!;
+        //public DbSet<User> Users { get; set; } = null!;
         public DbSet<Order> Orders { get; set; } = null!;//=> Set<Order>();
         public DbSet<Customer> Customers { get; set; } = null!;// => Set<Customer>();
         public DbSet<Order_SKU> Order_SKUs { get; set; } = null!; //=> Set<Order_SKU>();
